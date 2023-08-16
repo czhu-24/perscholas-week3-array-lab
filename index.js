@@ -15,8 +15,33 @@ console.log(`FUNCTION ONE ${oddNumbers} is all odd numbers: ${checkForOddness(od
 // TODO for self-edification: replace for... of... with a .map or .filter or ??? similar function
 // TODO: replace any even # w/ odd #
 
-const fahrenheitTemps = [32, 50, 68, 86, 104, 122, 140, 158, 176, 194];
+const checkForOddnessV2 = (array) => {
+    // for each element in array, keep it if it's even & then add one to it
+    array = array.map((x) => {
+        if(x % 2 == 0){
+            return x+1;
+        }else{
+            return x;
+        }
+    })
+    return array;
+}
+
+console.log(`FUNCTION ONE VERSION TWO, ${oddNumbers} with all even numbers replaced with odd is: ${checkForOddnessV2(oddNumbers)}`);
+
+const checkForOddnessV3 = (array) => {
+    // write func that checks if arr is ONLY odd numbers
+
+    // .every() is a function that returns true if the condition specified is true for all elements. otherwise, returns false
+
+    // the Math.abs is for the cases where x is a negative number.
+    return array.every((x) => Math.abs(x % 2) === 1);
+}
+console.log(`FUNCTION ONE VERSION THREE, ${oddNumbers} has all odd numbers: ${checkForOddnessV3(oddNumbers)}`);
+
+
 // 2) write func that calcs avg temp of array. also find highest temp & log it
+const fahrenheitTemps = [32, 50, 68, 86, 104, 122, 140, 158, 176, 194];
 const findAvgAndHighestTemp = (array) => {
     let avgTemp = 0;
     let highestTemp = 0;
@@ -34,7 +59,6 @@ findAvgAndHighestTemp(fahrenheitTemps);
 
 // 3) write a func that searches this array for your favorite fruit. if array doesn't have fav fruit, add it
 
-// STILL TO DO (T_T)
 const fruits = ["Apple", "Banana", "Orange", "Grapes", "Mango"];
 
 const findFavoriteFruit = (array, favoriteFruit) => {
